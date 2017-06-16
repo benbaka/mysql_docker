@@ -1,0 +1,19 @@
+docker build -t mysql .
+
+
+docker run -it  -p 3306:3306 --name "mysql_build_5" ben_mysql   /bin/bash
+- This prevents the docker image from exiting immediately it is started. The plan is now to add /bin/bash to the Dockerfile
+
+
+~ docker run -it  -d -p 3306:3306 --name "game_2_1" game_2
+The above will create a docker container and put it in the background
+
+
+~ docker exec -it   7c06092eb8ee  /bin/bash
+To execute a shell against a running container do like above 
+
+--
+When you get the below error:
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock'
+
+check the bind-address in my.cnf or /etc/mysql/mysql.conf.d/mysqld.cnf
